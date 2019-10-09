@@ -70,25 +70,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                if(i == 0)
+
+                switch (i)
                 {
-                    Toast.makeText(MainActivity.this, "Word", Toast.LENGTH_SHORT).show();
-                }
-                else if (i == 1)
-                {
-                    Toast.makeText(MainActivity.this, "Excel", Toast.LENGTH_SHORT).show();
-                }
-                else if (i == 2)
-                {
-                    Toast.makeText(MainActivity.this, "PowerPoint", Toast.LENGTH_SHORT).show();
-                }
-                else if (i == 3)
-                {
-                    Toast.makeText(MainActivity.this, "Outlook", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "Try Again !!", Toast.LENGTH_SHORT).show();
+                    case 0: Toast.makeText(MainActivity.this, "Word", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1: Toast.makeText(MainActivity.this, "Excel", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2: Toast.makeText(MainActivity.this, "PowerPoint", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3: Toast.makeText(MainActivity.this, "Outlook", Toast.LENGTH_SHORT).show();
+                        break;
+                    default: Toast.makeText(MainActivity.this, "Try Again !!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -100,37 +93,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Sélection item");
 
-                if(position == 0)
+                switch (position)
                 {
-                    builder.setMessage("Votre choix : Word");
-                    Log.e("tag" , "position " + position);
-                }
-                else if (position == 1)
-                {
-                    builder.setMessage("Votre choix : Excel");
-                    Log.e("tag" , "position " + position);
-                }
-                else if (position == 2)
-                {
-                    builder.setMessage("Votre choix : PowerPoint");
-                    Log.e("tag" , "position " + position);
-                }
-                else if (position == 3)
-                {
-                    builder.setMessage("Votre choix : Outlook");
-                    Log.e("tag" , "position " + position);
-                }
-                else
-                {
-                    builder.setMessage("Try Again !!");
-                    Log.e("tag" , "position " + position);
+                    case 0: builder.setMessage("Votre choix : Word");
+                    break;
+                    case 1: builder.setMessage("Votre choix : Excel");
+                    break;
+                    case 2: builder.setMessage("Votre choix : PowerPoint");
+                    break;
+                    case 3: builder.setMessage("Votre choix : Outlook");
+                    break;
+                    default: builder.setMessage("Try Again !!");
                 }
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
                 {
                     public void onClick(DialogInterface dialog, int id)
                     {
-
+                        //Button onClick
                     }
                 });
 
@@ -144,31 +124,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else
+        {
             super.onBackPressed();
         }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
 
@@ -177,7 +163,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
